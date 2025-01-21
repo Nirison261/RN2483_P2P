@@ -1,6 +1,6 @@
 # RN2483_P2P Arduino library
 
-![RN2483_module](RN2483_module.jpg "The RN2483 module")
+![RN2483_module](images/RN2483_module.jpg "The RN2483 module")
 
 It is a Arduino helper library for implementing peer 2 peer type communication with RN2483 Microchip LoRa modules.
 
