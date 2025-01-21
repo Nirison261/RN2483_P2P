@@ -19,8 +19,6 @@ static void sendCmd(char *cmd)
 	waitForResponse();
 }
 
-
-
 void RN2483_init()
 {
 	lora.begin(57600); 
@@ -29,9 +27,17 @@ void RN2483_init()
 
 	//sendCmd("sys factoryRESET");
 	sendCmd("sys reset");
-  
+
+	/*
+	If you want to know what the commands below mean, see the "RN2483 LoRa Technology Module Command Reference User's Guide"
+	provided on the doc/ folder, or look for it directly on the Microchip official website;
+	*/
 	sendCmd("radio set mod lora");
-	sendCmd("radio set freq 868100000");
+	sendCmd("radio set freq 868100000"); // Here, we use the EU863 (863MHz to 870MHz) ISM band, but you can select another band.
+	/*
+	With a modulation bandwidth of 125kHz, the center frequency must be between 864.125MHz and 869.875MHz on EU863 band and
+	between 433.175MHz and 434.665MHz for the EU433 band.
+	*/
 	sendCmd("radio set pwr 14");
 	sendCmd("radio set sf sf7");
 	sendCmd("radio set crc on");
